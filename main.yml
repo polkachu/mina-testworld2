@@ -1,0 +1,6 @@
+---
+- name: Main
+  hosts: '{{ target }}'
+  gather_facts: false
+  roles:
+    - mina

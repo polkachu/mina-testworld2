@@ -1,0 +1,17 @@
+---
+- name: copy service file
+  become: true
+  template:
+    src: 'lt.service.j2'
+    dest: '/etc/systemd/system/mina_lt{{ number }}.service'
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: start service
+  become: true
+  systemd:
+    name: 'mina_lt{{ number }}'
+    state: restarted
+    daemon_reload: yes
+    enabled: yes

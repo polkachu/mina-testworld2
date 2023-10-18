@@ -1,0 +1,17 @@
+---
+- name: copy service file
+  become: true
+  template:
+    src: 'bp.service.j2'
+    dest: '/etc/systemd/system/mina_bp{{ number }}.service'
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: start service
+  become: true
+  systemd:
+    name: 'mina_bp{{ number }}'
+    state: restarted
+    daemon_reload: yes
+    enabled: yes

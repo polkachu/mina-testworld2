@@ -1,0 +1,26 @@
+---
+- name: register public ip
+  uri:
+    url: 'https://api.ipify.org?format=json'
+  register: public_ip
+
+- name: Open port
+  become: true
+  ufw:
+    rule: allow
+    proto: tcp
+    port: '{{ prefix }}02'
+
+- name: copy env file
+  template:
+    src: 'env.j2'
+    dest: '/home/ubuntu/.mina-env{{ number }}'
+    mode: '0644'
+
+- name: install bp
+  import_tasks: bp.yml
+  when: role == 'bp'
+
+- name: install lt
+  import_tasks: lt.yml
+  when: role == 'lt'

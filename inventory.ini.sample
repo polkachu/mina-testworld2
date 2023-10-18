@@ -1,0 +1,14 @@
+[bp]
+bp1 ansible_host=10.0.0.1 number=1 prefix=83 role=bp
+bp2 ansible_host=10.0.0.1 number=2 prefix=84 role=bp
+
+[lt]
+lt1 ansible_host=10.0.0.2 number=1 prefix=83 role=lt
+lt2 ansible_host=10.0.0.2 number=2 prefix=84 role=lt
+lt3 ansible_host=10.0.0.2 number=3 prefix=85 role=lt
+lt4 ansible_host=10.0.0.2 number=4 prefix=86 role=lt
+[all:vars]
+privkey_pass="pass"
+bp_uptime_privkey_pass="pass"
+lt_uptime_privkey_pass="pass"
+libp2p_pass="pass"
