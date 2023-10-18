@@ -1,4 +1,4 @@
-# Mina Test World Ansible deployment
+# Mina Testworld-2 Ansible deployment
 
 ## Design Philosophy
 
